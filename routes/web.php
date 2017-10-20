@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+//Route::get('/', function () {
+//    return view('pages.index');
+//});
+
+Route::get('/', 'HymnController@index');
+Route::get('/add-songs', 'HymnController@create');
+Route::get('/view-songs/{id}', 'HymnController@show');
+Route::post('/add-songs', 'HymnController@store');

@@ -20,6 +20,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('flexcodes/dist/css/skins/_all-skins.min.css') }}">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,11 +33,6 @@
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <style>
-        td a {
-            display: block;
-        }
-    </style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-blue layout-top-nav">
@@ -62,36 +59,43 @@
                 <div class="callout callout-info">
                     <h4>Tip!</h4>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p>Add the layout-top-nav class to the body tag to get this layout. This feature can also be used
+                        with a
+                        sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and
+                        use regular
+                        links instead.</p>
                 </div>
-
-                <div class="box">
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="flexcodes-datatable" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th class="col-md-1 text-center">NO</th>
-                                <th>HYMN</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($hymns as $hymn)
-                                <tr>
-                                    <td class="text-center"><a href="/view-songs/{{ $hymn->id }}">{{ $hymn->number }}</a></td>
-                                    <td><a href="/view-songs/{{ $hymn->id }}">{{ $hymn->title }}</a></td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                <form role="form" method="post" action="">
+                    {{ csrf_field() }}
+                    <div class="box">
+                        <div class="box-body">
+                                <div class="col-md-12">
+                                    <!-- text input -->
+                                    <div class="form-group col-md-2">
+                                        <label></label>
+                                        <input type="text" name="number" class="form-control"
+                                               placeholder="Song Number ...">
+                                    </div>
+                                    <div class="form-group col-md-10">
+                                        <label></label>
+                                        <input type="text" name="title" class="form-control"
+                                               placeholder="Song Tittle ...">
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-                    <!-- /.box-body -->
-                </div>
 
+                    <div class="box">
+                        <div class="box-body pad">
+
+                <textarea name="song" class="textarea" placeholder="Song..."
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" value="Save" class="btn btn-block btn-primary btn-flat">
+
+                </form>
             </section>
             <!-- /.content -->
         </div>
@@ -106,9 +110,6 @@
 <script src="{{ asset('flexcodes/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('flexcodes/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<!-- DataTables -->
-<script src="{{ asset('flexcodes/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('flexcodes/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <!-- SlimScroll -->
 <script src="{{ asset('flexcodes/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
@@ -117,17 +118,12 @@
 <script src="{{ asset('flexcodes/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('flexcodes/dist/js/demo.js') }}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{ asset('flexcodes/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <script>
     $(function () {
-        $('#flexcodes-datatable').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
+        //bootstrap WYSIHTML5 - text editor
+        $('.textarea').wysihtml5()
     })
 </script>
 </body>

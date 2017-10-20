@@ -59,39 +59,23 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="callout callout-info">
-                    <h4>Tip!</h4>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-
-                <div class="box">
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="flexcodes-datatable" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th class="col-md-1 text-center">NO</th>
-                                <th>HYMN</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($hymns as $hymn)
-                                <tr>
-                                    <td class="text-center"><a href="/view-songs/{{ $hymn->id }}">{{ $hymn->number }}</a></td>
-                                    <td><a href="/view-songs/{{ $hymn->id }}">{{ $hymn->title }}</a></td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">
+                            <h2 style="margin: 0 20px" class="box-title">#{{ $hymns->number }}</h2>
+                            <h3 class="box-title">{{ $hymns->title }}</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <dl class="dl-horizontal">
+                                <dt>Description lists</dt>
+                                <dd>{!! $hymns->song !!}</dd>
+                            </dl>
+                        </div>
+                        <!-- /.box-body -->
                     </div>
-                    <!-- /.box-body -->
+                    <!-- /.box -->
                 </div>
-
             </section>
             <!-- /.content -->
         </div>
@@ -113,22 +97,7 @@
 <script src="{{ asset('flexcodes/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('flexcodes/bower_components/fastclick/lib/fastclick.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('flexcodes/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('flexcodes/dist/js/demo.js') }}"></script>
-<script>
-    $(function () {
-        $('#flexcodes-datatable').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
-    })
-</script>
 </body>
 </html>
