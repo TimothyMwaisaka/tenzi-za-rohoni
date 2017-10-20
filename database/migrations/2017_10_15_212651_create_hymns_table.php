@@ -17,7 +17,7 @@ class CreateHymnsTable extends Migration
             $table->increments('id');
             $table->integer('number');
             $table->string('title');
-            $table->string('song');
+            $table->string('song', 1000);
             $table->timestamps();
         });
     }

@@ -47,11 +47,11 @@ return [
             'username' => env('DB_USERNAME', 'flexcodes'),
             'password' => env('DB_PASSWORD', 'iTWeDYjM5cZt4VVb'),
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'strict' => true,
-            'engine' => null,
+            'engine' => 'InnoDB ROW_FORMAT=DYNAMIC',
         ],
 
         'pgsql' => [
