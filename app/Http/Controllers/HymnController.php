@@ -1,5 +1,16 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Author: Timothy Mwaisaka
+|--------------------------------------------------------------------------
+| Email: timothymwaisaka@gmail.com
+|--------------------------------------------------------------------------
+| Date: 21/10/2017
+|--------------------------------------------------------------------------
+|
+*/
+
 namespace App\Http\Controllers;
 
 use App\Hymn;
@@ -26,6 +37,7 @@ class HymnController extends Controller
         $hymn->title = $request->title;
         $hymn->song = $request->song;
         $hymn->save();
+        return redirect()->back()->with('success', 'Hymn added successfully..!');
     }
 
     public function show($id)
