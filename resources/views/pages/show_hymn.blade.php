@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{{-- Author: Timothy Mwaisaka --}}
+{{-- Email: timothymwaisaka@gmail.com --}}
+{{-- Date: 21/10/2017 --}}
 <html>
 <head>
     <meta charset="utf-8">
@@ -53,12 +56,14 @@
                     <small>Nyimbo za Tenzi</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Hymn - {{ $hymns->number }}</li>
                 </ol>
             </section>
 
             <!-- Main content -->
             <section class="content">
+
                 <div class="col-md-8 col-md-offset-2">
                     <div class="box box-solid">
                         <div class="box-header with-border">
@@ -66,11 +71,8 @@
                             <h3 class="box-title">{{ $hymns->title }}</h3>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body">
-                            <dl class="dl-horizontal">
-                                <dt>Description lists</dt>
-                                <dd>{!! $hymns->song !!}</dd>
-                            </dl>
+                        <div style="margin: 0 20px" class="box-body">
+                            {!! $hymns->song !!}
                         </div>
                         <!-- /.box-body -->
                     </div>

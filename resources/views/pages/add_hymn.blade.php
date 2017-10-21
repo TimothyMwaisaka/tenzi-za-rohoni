@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{{-- Author: Timothy Mwaisaka --}}
+{{-- Email: timothymwaisaka@gmail.com --}}
+{{-- Date: 21/10/2017 --}}
 <html>
 <head>
     <meta charset="utf-8">
@@ -50,21 +53,20 @@
                     <small>Nyimbo za Tenzi</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="active">Add hymn</li>
                 </ol>
             </section>
 
             <!-- Main content -->
             <section class="content">
-                <div class="callout callout-info">
-                    <h4>Tip!</h4>
-
-                    <p>Add the layout-top-nav class to the body tag to get this layout. This feature can also be used
-                        with a
-                        sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and
-                        use regular
-                        links instead.</p>
-                </div>
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <i class="icon fa fa-check"></i> {{ session()->get('success') }}
+                    </div>
+                @endif
+                @include ('includes.flexbanner')
                 <form role="form" method="post" action="">
                     {{ csrf_field() }}
                     <div class="box">

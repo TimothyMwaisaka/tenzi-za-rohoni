@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{{-- Author: Timothy Mwaisaka --}}
+{{-- Email: timothymwaisaka@gmail.com --}}
+{{-- Date: 21/10/2017 --}}
 <html>
 <head>
     <meta charset="utf-8">
@@ -53,21 +56,13 @@
                     <small>Nyimbo za Tenzi</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
                 </ol>
             </section>
 
             <!-- Main content -->
             <section class="content">
-                <div class="callout callout-info">
-                    <h4>Tip!</h4>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
+                @include('includes.flexbanner')
 
                 <div class="box">
                     <!-- /.box-header -->
@@ -82,7 +77,8 @@
                             <tbody>
                             @foreach($hymns as $hymn)
                                 <tr>
-                                    <td class="text-center"><a href="/view-songs/{{ $hymn->id }}">{{ $hymn->number }}</a></td>
+                                    <td class="text-center"><a
+                                                href="/view-songs/{{ $hymn->id }}">{{ $hymn->number }}</a></td>
                                     <td><a href="/view-songs/{{ $hymn->id }}">{{ $hymn->title }}</a></td>
                                 </tr>
                             @endforeach
