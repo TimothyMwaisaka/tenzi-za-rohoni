@@ -48,7 +48,8 @@ class HymnController extends Controller
 
     public function edit($id)
     {
-
+        $hymns = Hymn::find($id);
+        return view('pages.edit_hymn', compact('hymns'));
     }
 
     public function update(Request $request, $id)
