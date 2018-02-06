@@ -32,11 +32,8 @@ class HymnController extends Controller
 
     public function store(Request $request)
     {
-        $hymn = new Hymn();
-        $hymn->number = $request->number;
-        $hymn->title = $request->title;
-        $hymn->song = $request->song;
-        $hymn->save();
+        $hymn = $request->all();
+        Hymn::create($hymn);
         return redirect()->back()->with('success', 'Hymn added successfully..!');
     }
 
@@ -54,7 +51,10 @@ class HymnController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        $hymn = Hymn::find($id);
+        $inputs = $request->all();
+        $hymn->fill($inputs)->save();
+        return redirect()->back()->with('success', 'Hymn updated successfully..!');
     }
 
     public function destroy($id)
