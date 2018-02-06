@@ -16,4 +16,4 @@ Route::get('/add-songs', 'HymnController@create');
 Route::get('/view-songs/{id}', 'HymnController@show');
 Route::post('/add-songs', 'HymnController@store');
 Route::get('/edit-songs/{id}', 'HymnController@edit');
-Route::post('/edit-songs/{id}', 'HymnController@show');
+Route::post('/edit-songs/{id}', 'HymnController@update');
