@@ -19,6 +19,11 @@ use Illuminate\Http\Request;
 
 class HymnController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index','show']]);
+    }
+
     public function index()
     {
         $hymns = Hymn::all();
@@ -59,6 +64,8 @@ class HymnController extends Controller
 
     public function destroy($id)
     {
-
+        $hymn = Hymn::find($id);
+        $hymn->delete();
+        return redirect()->back()->with('delete', 'Hymn deleted successfully..!');
     }
 }

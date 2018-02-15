@@ -17,3 +17,8 @@ Route::get('/view-songs/{id}', 'HymnController@show');
 Route::post('/add-songs', 'HymnController@store');
 Route::get('/edit-songs/{id}', 'HymnController@edit');
 Route::post('/edit-songs/{id}', 'HymnController@update');
+Route::get('/delete-songs/{id}', 'HymnController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
