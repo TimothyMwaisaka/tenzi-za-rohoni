@@ -117,6 +117,7 @@
     $(function () {
         $('#flexcodes-datatable').DataTable()
         $('#example2').DataTable({
+            'pageLength': 30,
             'paging': true,
             'lengthChange': false,
             'searching': false,
