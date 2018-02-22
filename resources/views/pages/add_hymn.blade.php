@@ -90,8 +90,8 @@
                     <div class="box">
                         <div class="box-body pad">
 
-                <textarea name="song" class="textarea" placeholder="Song..."
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                <textarea name="song" class="textarea" rows="20" placeholder="Song..."
+                          style="width: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 
                         </div>
                     </div>
