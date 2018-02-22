@@ -38,6 +38,9 @@
         td a {
             display: block;
         }
+        .padding {
+            padding: 10px 0;
+        }
     </style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
@@ -62,16 +65,15 @@
             </section>
 
             <!-- Main content -->
-            <section class="content">
-
-                <div class="col-md-8 col-md-offset-2">
+            <section class="padding">
+                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
                     <div class="box box-solid">
                         <div class="box-header with-border">
-                            <h2 style="margin: 0 20px" class="box-title">#{{ $hymns->number }}</h2>
+                            <h2 style="margin: 0 10px" class="box-title">#{{ $hymns->number }}</h2>
                             <h3 class="box-title">{{ $hymns->title }}</h3>
                         </div>
                         <!-- /.box-header -->
-                        <div style="margin: 0 20px" class="box-body">
+                        <div style="margin: 0 10px" class="box-body">
                             {!! $hymns->song !!}
                         </div>
                         <!-- /.box-body -->
