@@ -73,7 +73,7 @@
                             <h3 class="box-title">{{ $hymns->title }}</h3>
                         </div>
                         <!-- /.box-header -->
-                        <div style="margin: 0 10px" class="box-body">
+                        <div style="font-size: 120%; margin: 0 10px" class="box-body">
                             {!! $hymns->song !!}
                         </div>
                         <!-- /.box-body -->
