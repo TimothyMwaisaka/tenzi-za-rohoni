@@ -114,18 +114,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('flexcodes/dist/js/demo.js') }}"></script>
 <script>
-    $(function () {
-        $('#flexcodes-datatable').DataTable()
-        $('#example2').DataTable({
-            'pageLength': 30,
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
-    })
+    $('#flexcodes-datatable').dataTable( {
+        "pageLength": 25
+    } );
 </script>
 </body>
 </html>
