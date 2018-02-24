@@ -65,13 +65,18 @@
                 @include('includes.flexbanner')
 
                 <div class="box">
+
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="flexcodes-datatable" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th class="col-md-1 text-center">NO</th>
-                                <th>HYMN</th>
+                                <th class="col-sm-9">HYMN</th>
+                                @if (Auth::guest())
+                                @else
+                                    <th>ACTION</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -80,6 +85,17 @@
                                     <td class="text-center"><a
                                                 href="view-songs/{{ $hymn->id }}">{{ $hymn->number }}</a></td>
                                     <td><a href="view-songs/{{ $hymn->id }}">{{ $hymn->title }}</a></td>
+                                    @if (Auth::guest())
+                                    @else
+                                        <td>
+                                            <div class="col-sm-1">
+                                                <a href="edit-songs/{{ $hymn->id }}">Edit</a>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <a href="view-songs/{{ $hymn->id }}">delete</a>
+                                            </div>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
@@ -114,9 +130,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('flexcodes/dist/js/demo.js') }}"></script>
 <script>
-    $('#flexcodes-datatable').dataTable( {
+    $('#flexcodes-datatable').dataTable({
         "pageLength": 25
-    } );
+    });
 </script>
 </body>
 </html>
