@@ -15,6 +15,8 @@ namespace App\Http\Controllers;
 
 use App\Hymn;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 class HymnController extends Controller
@@ -59,13 +61,13 @@ class HymnController extends Controller
         $hymn = Hymn::find($id);
         $inputs = $request->all();
         $hymn->fill($inputs)->save();
-        return redirect()->back()->with('success', 'Hymn updated successfully..!');
+        //return redirect()->with('success', 'Hymn updated successfully..!');
+        return redirect()->route('view-songs', ['id' => $id])->with('updated', 'Hymn updated successfully..!');
     }
 
     public function destroy($id)
     {
-        $hymn = Hymn::find($id);
-        $hymn->delete();
-        return redirect()->back()->with('delete', 'Hymn deleted successfully..!');
+        Hymn::find($id)->delete();
+        return redirect('/')->with('delete', 'Hymn deleted successfully..!');
     }
 }

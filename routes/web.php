@@ -13,11 +13,12 @@
 
 Route::get('/', 'HymnController@index');
 Route::get('/add-songs', 'HymnController@create');
-Route::get('/view-songs/{id}', 'HymnController@show');
+Route::get('/view-songs/{id}' , ['as' => 'view-songs', 'uses' => 'HymnController@show']);
 Route::post('/add-songs', 'HymnController@store');
 Route::get('/edit-songs/{id}', 'HymnController@edit');
 Route::post('/edit-songs/{id}', 'HymnController@update');
-Route::get('/delete-songs/{id}', 'HymnController@destroy');
+
+Route::get('song/delete/{id}', 'HymnController@destroy');
 
 Auth::routes();
 
