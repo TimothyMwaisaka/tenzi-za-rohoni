@@ -18,44 +18,61 @@
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('https://www.bible.com/sw/') }}">Biblia</a></li>
-                    @if (Auth::guest())
-                    @else
-                        <li>
-                            <!-- Trigger the modal with a link -->
-                            <a href="#adminModal" data-toggle="modal" data-target="#adminModal">Admin</a>
-                        </li>
-                    @endif
                 </ul>
             </div>
-            <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
-                <ul style="padding-right: 15px;" class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+            <!-- /.navbar-collapse -->
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                @if(Auth::check())
+                        <!-- Tasks Menu -->
+                        <li class="dropdown tasks-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#adminModal" data-toggle="modal" data-target="#adminModal">
+                                <i class="fa fa-gear"></i>
                             </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                        </li>
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="{{URL::asset('flexcodes/dist/img/profile.png')}}" class="user-image"
+                                     alt="User Image">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">{{ Auth::User()->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="{{URL::asset('flexcodes/dist/img/profile.png')}}" class="img-circle"
+                                         alt="User Image">
+                                    <p>
+                                        {{ Auth::User()->name }}
+                                        <small>Registered: {{ Auth::User()->created_at->format('d/m/Y') }}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
                     @endif
                 </ul>
             </div>
-
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
