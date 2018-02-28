@@ -39,6 +39,11 @@ class HymnController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, array(
+            'number' => 'required|unique:hymns|max:255',
+            'title' => 'required',
+            'song' => 'required',
+        ));
         $hymn = $request->all();
         Hymn::create($hymn);
         return redirect()->back()->with('success', 'Hymn added successfully..!');
