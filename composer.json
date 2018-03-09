@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "timothymwaisaka/tenzi",
+    "description": "Christian Hymns",
+    "keywords": ["Tenzi za rohoni", "Nyimbo za tenzi"],
     "license": "MIT",
     "type": "project",
     "require": {
