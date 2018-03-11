@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 
 class UserController extends Controller
@@ -10,7 +9,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('pages.users', compact('users'));
+        return view('pages.users', compact('users'))->with('title', 'Users');
     }
 
     public function destroy($id)

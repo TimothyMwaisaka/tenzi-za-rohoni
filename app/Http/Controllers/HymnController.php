@@ -29,12 +29,12 @@ class HymnController extends Controller
     public function index()
     {
         $hymns = Hymn::all();
-        return view('pages.index', compact('hymns'));
+        return view('pages.index', compact('hymns'))->with('title','Home');
     }
 
     public function create()
     {
-        return view('pages.add_hymn');
+        return view('pages.add_hymn')->with('title','New Song');
     }
 
     public function store(Request $request)
@@ -52,13 +52,13 @@ class HymnController extends Controller
     public function show($id)
     {
         $hymns = Hymn::find($id);
-        return view('pages.show_hymn', compact('hymns'));
+        return view('pages.show_hymn', compact('hymns'))->with('title','Song');
     }
 
     public function edit($id)
     {
         $hymns = Hymn::find($id);
-        return view('pages.edit_hymn', compact('hymns'));
+        return view('pages.edit_hymn', compact('hymns'))->with('title','Edit Song');
     }
 
     public function update(Request $request, $id)
