@@ -17,6 +17,14 @@ Route::get('/view-songs/{id}' , ['as' => 'view-songs', 'uses' => 'HymnController
 Route::post('/add-songs', 'HymnController@store');
 Route::get('/edit-songs/{id}', 'HymnController@edit');
 Route::post('/edit-songs/{id}', 'HymnController@update');
+Route::get('users', [
+    'as' => 'users',
+    'uses' => 'UserController@index'
+]);
+Route::get('users/delete/{id}', [
+    'as' => 'users.delete',
+    'uses' => 'UserController@destroy',
+]);
 
 Route::get('song/delete/{id}', 'HymnController@destroy');
 
