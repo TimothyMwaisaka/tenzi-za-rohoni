@@ -1,7 +1,52 @@
+<!DOCTYPE html>
 {{-- Author: Timothy Mwaisaka --}}
 {{-- Email: timothymwaisaka@gmail.com --}}
 {{-- Date: 21/10/2017 --}}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/bower_components/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/bower_components/Ionicons/css/ionicons.min.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet"
+          href="{{ asset('flexcodes/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/dist/css/AdminLTE.min.css') }}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/dist/css/skins/_all-skins.min.css') }}">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="{{ asset('flexcodes/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+    <style>
+        td a {
+            display: block;
+        }
+        .padding {
+            padding: 10px 0;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
 <header class="main-header">
     <nav class="navbar navbar-static-top">
         <div class="container">
@@ -25,7 +70,7 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                 @if(Auth::check())
-                        <!-- Tasks Menu -->
+                    <!-- Tasks Menu -->
                         <li class="dropdown tasks-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#adminModal" data-toggle="modal" data-target="#adminModal">
@@ -84,22 +129,24 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ADMIN CONTROL AREA</h4>
+            <div class="widget-user-header bg-blue" align="center" style="padding: 20px;">
+                <h3 class="widget-user-username">ADMIN DASHBOARD</h3>
             </div>
             <div class="modal-body">
-                <table class="table table-hover table-responsive no-padding">
-                    <tr>
-                        <td><a href="{{ url('add-songs') }}">ADD NEW SONG</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">MANAGE USERS</a></td>
-                    </tr>
-                </table>
+                <div class="box box-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+
+                    <div class="box-footer no-padding">
+                        <ul class="nav nav-stacked">
+                            <li><a href="{{ url('add-songs') }}">Add songs <span
+                                            class="pull-right badge bg-yellow"><i class="fa fa-music" aria-hidden="true"></i></span></a></li>
+                            <li><a href="{{ route('users') }}">Manage users <span class="pull-right badge bg-aqua"><i class="fa fa-user" aria-hidden="true"></i></span></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
 
