@@ -12,3 +12,4 @@ yarn-error.log
 .env
 config/database.php
 public/.htaccess
+public/templates
