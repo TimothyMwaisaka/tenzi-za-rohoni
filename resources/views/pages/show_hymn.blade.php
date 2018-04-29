@@ -14,7 +14,7 @@
                 <div class="box-header with-border">
                     <div class="pull-left">
                         <h2 style="margin: 0 10px" class="box-title">#{{ $hymns->number }}</h2>
-                        <h3 class="box-title">{{ $hymns->title }}</h3>
+                        <h3 class="box-title">{{ strtoupper($hymns->title) }}</h3>
                     </div>
                     @if (Auth::check())
                         <div class="pull-right">

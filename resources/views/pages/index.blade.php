@@ -27,7 +27,7 @@
                         <tr>
                             <td class="text-center"><a
                                         href="view-songs/{{ $hymn->id }}">{{ $hymn->number }}</a></td>
-                            <td><a href="view-songs/{{ $hymn->id }}">{{ $hymn->title }}</a></td>
+                            <td><a href="view-songs/{{ $hymn->id }}">{{ strtoupper($hymn->title) }}</a></td>
                         </tr>
                     @endforeach
                     </tbody>
