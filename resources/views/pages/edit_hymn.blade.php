@@ -3,13 +3,16 @@
 @section('content')
     <!-- Main content -->
     <section class="content">
+
+        @include ('includes.flexbanner')
+
         @if(session()->has('success'))
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="icon fa fa-check"></i> {{ session()->get('success') }}
             </div>
         @endif
-        @include ('includes.flexbanner')
+
         <form role="form" method="post" action="">
             {{ csrf_field() }}
             <div class="box">
