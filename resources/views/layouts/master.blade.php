@@ -7,7 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Nyimbo za Tenzi za Rohoni">
+    <meta name="description" content="Nyimbo za Tenzi za Rohoni ni nyimbo za kikristo za kumsifu na kumuabudu Mungu.">
+    <meta name="keywords" content="tenzi, nyimbo za tenzi, tenzi za rohoni, Yesu, Yesu nakupenda, dhambi, mwokozi, msalaba, bwana, zaburi, roho, sifa, utukufu, kusifu, kuabudu, Mungu ni pendo, neno, biblia">
+    <meta name="author" content="Timothy Mwaisaka">
     <title>{{ config('app.name') }} | {{ $title }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
